@@ -1,28 +1,32 @@
 [
   {
-    "name": "react",
-    "versions": [
-      {
-        "version": "0.14.2",
-        "hash": "QmRXoEos5xQ5KSrcSSHau78E6aX4pdKS8nxyFF2ZavtwFw"
-      }
-    ]
-  },
-  {
-    "name": "react-dom",
-    "versions": [
-      {
-        "version": "0.14.2",
-        "hash": "QmVmz8vGJgPyw1Vxg3oegBhWQfyf8ff6BYvmfXSrhm8PLr"
-      }
-    ]
-  },
-  {
     "name": "angular",
     "versions": [
       {
         "version": "1.4.7",
         "hash": "QmVYj7mwnSL1bG16ACa8xxfhgygvAGeonzPu9FwRoWXGhg"
+      }
+    ]
+  },
+  {
+    "name": "react",
+    "versions": [
+      {
+        "version": "0.14.2",
+        "hash": "QmRXoEos5xQ5KSrcSSHau78E6aX4pdKS8nxyFF2ZavtwFw"
+      },
+      {
+        "version": "0.13.3",
+        "hash": "QmY6L2S6LCfL4JmccoTDEdRBHDb8JKu8WqHM8wRXxMnNUv"
+      }
+    ]
+  },
+  {
+    "name": "whatwg-fetch",
+    "versions": [
+      {
+        "version": "0.10.1",
+        "hash": "QmbdexQhkaaUVdGz6YEzcYbprfxCWC2YMsYregUxsFVPPY"
       }
     ]
   }
