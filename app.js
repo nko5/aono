@@ -1,3 +1,4 @@
+const ejs = require('ejs')
 const express = require('express')
 const ipfsAPI = require('ipfs-api')
 
@@ -13,13 +14,12 @@ const ipfsConfig = {
 }
 
 const ipfsCfg = ipfsConfig[process.env.NODE_ENV] || ipfsConfig.dev
-
 const ipfs = ipfsAPI(ipfsCfg.host, ipfsCfg.port)
 
 const app = express()
 
 app.get('/', (req, res) => {
-  res.send('<a href="/QmYrf7ezt4TppARKyzt95KRy8nKzY5Z9Jw4qX3DeexsBHY">code</a>')
+  res.render('index')
 })
 
 app.get('/:hash', (req, res) => {
@@ -38,6 +38,9 @@ app.get('/:hash', (req, res) => {
 })
 
 const port = process.env.PORT || 8081
+app.set('views', './views')
+app.set('view engine', 'html');
+app.engine('html', ejs.renderFile);
 app.set('x-powered-by', false)
 app.listen(port)
 console.log('Express server started on port %s', port)
