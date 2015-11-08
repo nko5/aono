@@ -9,7 +9,12 @@
     "ipfs-api": "^2.7.0"
   },
   "scripts": {
+    "deploy": "modulus deploy",
+    "postinstall": "node scripts/postinstall.js",
     "start": "node app.js",
-    "postinstall": "node scripts/postinstall.js"
+    "watch": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.8.1"
   }
 }
