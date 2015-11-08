@@ -1,7 +1,28 @@
 [
   {
     "name": "react",
-    "version": "0.14.2",
-    "hash": "QmRXoEos5xQ5KSrcSSHau78E6aX4pdKS8nxyFF2ZavtwFw"
+    "versions": [
+      {
+        "version": "0.14.2",
+        "hash": "QmRXoEos5xQ5KSrcSSHau78E6aX4pdKS8nxyFF2ZavtwFw"
+      },
+      {
+        "version": "0.14.1",
+        "hash": "QmUceGvFzCPYkymELgdzmCcYc3xoBAMkwTh8furP4xqzhP"
+      },
+      {
+        "version": "0.14.0",
+        "hash": "QmTavP55g11NWDaYvmwJZYzRWjT1ofF2T2Xph8o6c9wXfu"
+      }
+    ]
+  },
+  {
+    "name": "react-dom",
+    "versions": [
+      {
+        "version": "0.14.2",
+        "hash": "QmVmz8vGJgPyw1Vxg3oegBhWQfyf8ff6BYvmfXSrhm8PLr"
+      }
+    ]
   }
 ]
