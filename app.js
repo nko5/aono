@@ -1,6 +1,7 @@
 const ejs = require('ejs')
 const express = require('express')
 const ipfsAPI = require('ipfs-api')
+const libraries = require('./libraries.json');
 
 const ipfsConfig = {
   production: {
@@ -19,7 +20,9 @@ const ipfs = ipfsAPI(ipfsCfg.host, ipfsCfg.port)
 const app = express()
 
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', {
+    libraries: libraries
+  })
 })
 
 app.get('/:hash', (req, res) => {
