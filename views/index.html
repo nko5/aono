@@ -7,7 +7,7 @@
     <style type="text/css">
       body {
         margin: 80px auto;
-        max-width: 750px;
+        max-width: 800px;
         line-height: 1.6;
         font-size: 18px;
         color: #333;
@@ -18,10 +18,16 @@
         line-height: 1.4;
       }
       input {
-        width: 100%;
-        font-size: 16px;
-        padding: 10px;
+        width: 89%;
+        font-size: 14px;
+        padding: 10px 5px;
         margin: 10px;
+      }
+      ul {
+        padding: 0 0 0 20px;
+      }
+      li {
+        list-style-type: none;
       }
     </style>
   </head>
@@ -31,6 +37,24 @@
       <h2>A peer-to-peer JavaScript CDN built on top of <a href="https://ipfs.io/">IPFS</a>.</h2>
     </header>
     <section>
+      <h4>What's IPFS?</h4>
+      <blockquote>
+        "IPFS is a distributed file system that seeks to connect all computing devices with the same
+        system of files. In some ways, this is similar to the original aims of the Web, but IPFS is
+        actually more similar to a single bittorrent swarm exchanging git objects." -
+        <a href="https://github.com/ipfs/ipfs">IPFS readme</a>
+      </blockquote>
+      <h4>Why IPFS?</h4>
+      <p>
+        Rather than requiring a centrally-controlled location for content to be hosted IPFS allows
+        a distributed network to become content providers for each other, ideal for use cases such as
+        static content delivery network.
+      </p>
+      <h4>What's with the huge hashes?</h4>
+      <p>
+        The hash is generated from the contents of the file and is guaranteed to always represent the
+        contents of that file only. If the file changes then a new hash will be generated.
+      </p>
       <ul>
         <% libraries.forEach(function(lib) { %>
           <li>
