@@ -1,10 +1,11 @@
 {
   "name": "p2pjs",
   "version": "0.0.1",
-  "description": "A p2p JavaScript CDN built on top of IPFS",
+  "description": "A peer-to-peer JavaScript CDN built on top of IPFS",
   "author": "AONO - Chris Wheatley <chriswheatley87@gmail.com>",
   "main": "app.js",
   "dependencies": {
+    "ejs": "^2.3.4",
     "express": "^4.13.3",
     "ipfs-api": "^2.7.0"
   },
