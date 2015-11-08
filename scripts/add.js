@@ -1,3 +1,5 @@
+'use strict'
+
 const fs = require('fs')
 const ipfsAPI = require('ipfs-api')
 const rs = require('request-promise')
@@ -22,11 +24,37 @@ rs(source).then((resp) => {
       }
 
       res.forEach((file) => {
-        libraries.push({
-          name: file.Name,
-          version: libVersion,
-          hash: file.Hash
+        let libExists = false
+        libraries.forEach(lib => {
+          
+          if (lib.name === libName) {
+            libExists = true
+            let versionExists = false
+
+            lib.versions.forEach(ver => {
+              if (ver.version === libVersion) {
+                versionExists = true
+              }
+            })
+
+            if (!versionExists) {
+              lib.versions.push({
+                version: libVersion,
+                hash: file.Hash
+              })
+            }
+          }
         })
+
+        if (!libExists) {
+          libraries.push({
+            name: file.Name,
+            versions: [{
+              version: libVersion,
+              hash: file.Hash
+            }]
+          })
+        }
 
         fs.writeFile('libraries.json', JSON.stringify(libraries, null, '  '), function (err) {
           if (err) {
