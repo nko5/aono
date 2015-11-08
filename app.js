@@ -1,14 +1,26 @@
-var express = require('express');
-var app = express();
+const express = require('express')
+const ipfsAPI = require('ipfs-api')
 
-//Create a static file server
-app.configure(function() {
-  app.use(express.static(__dirname + '/public'));
-});
+const ipfs = ipfsAPI('localhost', '5001')
 
-//Get the dummy data
-require('./server/ddata.js');
+const app = express()
 
-var port = 8080;
-app.listen(port);
-console.log('Express server started on port %s', port);
+app.get('/:hash', (req, res) => {
+  ipfs.cat(req.params.hash, (err, file) => {
+    if (err || !file) {
+      return console.error(err)
+    }
+
+    if(file.readable) {
+      file.pipe(res)
+    } else {
+      res.send(file)
+    }
+    res.setHeader("Access-Control-Allow-Origin", "*");
+  })
+})
+
+const port = 8081
+app.set('x-powered-by', false)
+app.listen(port)
+console.log('Express server started on port %s', port)
