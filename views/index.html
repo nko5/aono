@@ -7,7 +7,7 @@
     <style type="text/css">
       body {
         margin: 80px auto;
-        max-width: 650px;
+        max-width: 750px;
         line-height: 1.6;
         font-size: 18px;
         color: #333;
@@ -27,8 +27,18 @@
     <section>
       <ul>
         <% libraries.forEach(function(lib) { %>
-          <li><%= lib.name %> <%= lib.version %> <%= lib.hash %></li>
-        <% }); %>
+          <li>
+            <%= lib.name %>
+            <ul>
+              <% lib.versions.forEach(function(ver) { %>
+                <li>
+                  <%= ver.version %>
+                  <a href="/<%= ver.hash %>"><%= baseUrl %><%= ver.hash %></a>
+                </li>
+              <% }) %>
+            </ul>
+          </li>
+        <% }) %>
       </ul>
     </section>
   </body>
