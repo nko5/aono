@@ -1,3 +1,3 @@
 # p2pjs
 
-A p2p JavaScript CDN built on top of IPFS
+A peer-to-peer JavaScript CDN built on top of [IPFS](https://ipfs.io).
