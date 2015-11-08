@@ -24,7 +24,7 @@ app.get('/:hash', (req, res) => {
   })
 })
 
-const port = 8081
+const port = process.env.PORT || 8081
 app.set('x-powered-by', false)
 app.listen(port)
 console.log('Express server started on port %s', port)
