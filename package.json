@@ -4,6 +4,11 @@
   "description": "A peer-to-peer JavaScript CDN built on top of IPFS",
   "author": "AONO - Chris Wheatley <chriswheatley87@gmail.com>",
   "main": "app.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nko5/aono.git"
+  },
   "dependencies": {
     "ejs": "^2.3.4",
     "express": "^4.13.3",
