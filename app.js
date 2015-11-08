@@ -1,7 +1,20 @@
 const express = require('express')
 const ipfsAPI = require('ipfs-api')
 
-const ipfs = ipfsAPI('localhost', '5001')
+const ipfsConfig = {
+  production: {
+    host: 'ipfs.io',
+    port: 80
+  },
+  dev: {
+    host: 'localhost',
+    port: 5001
+  }
+}
+
+const ipfsCfg = ipfsConfig[process.env.NODE_ENV] || ipfsConfig.dev
+
+const ipfs = ipfsAPI(ipfsCfg.host, ipfsCfg.port)
 
 const app = express()
 
