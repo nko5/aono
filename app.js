@@ -1,27 +1,32 @@
+'use strict'
+
 const ejs = require('ejs')
 const express = require('express')
 const ipfsAPI = require('ipfs-api')
 const libraries = require('./libraries.json');
 
-const ipfsConfig = {
+const config = {
   production: {
-    host: 'ipfs.io',
-    port: 80
+    ipfsHost: 'ipfs.io',
+    ipfsPort: 80,
+    baseUrl: 'http://aono.2015.nodeknockout.com/'
   },
   dev: {
-    host: 'localhost',
-    port: 5001
+    ipfsHost: 'localhost',
+    ipfsPort: 5001,
+    baseUrl: 'http://localhost/'
   }
 }
 
-const ipfsCfg = ipfsConfig[process.env.NODE_ENV] || ipfsConfig.dev
-const ipfs = ipfsAPI(ipfsCfg.host, ipfsCfg.port)
+const cfg = config[process.env.NODE_ENV] || config.dev
+const ipfs = ipfsAPI(cfg.ipfsHost, cfg.ipfsPort)
 
 const app = express()
 
 app.get('/', (req, res) => {
   res.render('index', {
-    libraries: libraries
+    libraries,
+    baseUrl: cfg.baseUrl
   })
 })
 
