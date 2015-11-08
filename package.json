@@ -10,6 +10,7 @@
     "ipfs-api": "^2.7.0"
   },
   "scripts": {
+    "add": "node scripts/add.js",
     "deploy": "modulus deploy",
     "postinstall": "node scripts/postinstall.js",
     "start": "node app.js",
