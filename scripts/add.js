@@ -5,11 +5,13 @@ const files = []
 
 files.push(process.argv[2])
 
-ipfs.add(files, function(err, res) {
-    if(err || !res) return console.error(err)
+ipfs.add(files, (err, res) => {
+  if(err || !res) {
+    return console.error(err)
+  }
 
-    res.forEach(function(file) {
-        console.log(file.Hash)
-        console.log(file.Name)
-    })
+  res.forEach((file) => {
+    console.log(file.Hash)
+    console.log(file.Name)
+  })
 })
