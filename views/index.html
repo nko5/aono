@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
       body {
-        margin: 80px auto;
+        margin: 60px auto;
         max-width: 800px;
-        line-height: 1.6;
+        line-height: 1.4;
         font-size: 18px;
         color: #333;
         padding: 0 10px;
         background: #fbfbfb;
       }
       h1, h2, h3 {
-        line-height: 1.4;
+        line-height: 1.2;
       }
       input {
         width: 89%;
@@ -37,6 +37,23 @@
       <h2>A peer-to-peer JavaScript CDN built on top of <a href="https://ipfs.io/">IPFS</a>.</h2>
     </header>
     <section>
+      <h4>Resources</h4>
+      <ul>
+        <% libraries.forEach(function(lib) { %>
+          <li>
+            <b><%= lib.name %></b>
+            <ul>
+              <% lib.versions.forEach(function(ver) { %>
+                <li>
+                  <a href="/<%= ver.hash %>"><%= ver.version %></a>
+                  <input type="url" value="<%= baseUrl %><%= port ? ':' + port : '' %>/<%= ver.hash %>" onClick="this.select()"></input>
+                  <!-- <input type="url" value='<script src="<%= baseUrl %><%= ver.hash %>"></script>' onClick="this.select()"></input> -->
+                </li>
+              <% }) %>
+            </ul>
+          </li>
+        <% }) %>
+      </ul>
       <h4>What's IPFS?</h4>
       <blockquote>
         "IPFS is a distributed file system that seeks to connect all computing devices with the same
@@ -52,25 +69,25 @@
       </p>
       <h4>What's with the huge hashes?</h4>
       <p>
-        The hash is generated from the contents of the file and is guaranteed to always represent the
-        contents of that file only. If the file changes then a new hash will be generated.
+        The hash is generated from the contents of the file and is guaranteed to always be the same.
+        If the file changes then a new hash will be generated.
       </p>
-      <ul>
-        <% libraries.forEach(function(lib) { %>
-          <li>
-            <%= lib.name %>
-            <ul>
-              <% lib.versions.forEach(function(ver) { %>
-                <li>
-                  <a href="/<%= ver.hash %>"><%= ver.version %></a>
-                  <input type="url" value="<%= baseUrl %><%= port ? ':' + port : '' %>/<%= ver.hash %>" onClick="this.select()"></input>
-                  <!-- <input type="url" value='<script src="<%= baseUrl %><%= ver.hash %>"></script>' onClick="this.select()"></input> -->
-                </li>
-              <% }) %>
-            </ul>
-          </li>
-        <% }) %>
-      </ul>
+      <h4>How can I use this?</h4>
+      <p>
+        As with other CDN's you can simply drop in a script tag on your page pointing at the resource
+        you want to use.
+      </p>
+      <h4>I requested a file, does that mean I'm seeding now?</h4>
+      <p>
+        I don't think so... I'm yet to fully get to grips with IPFS but my understanding is that you need
+        to be running the <a href="https://ipfs.io/docs/install/">Go client</a> to become part of the
+        distribution network. If I'm incorrect with that statement please let me know!
+      </p>
+      <h4>The library/framework I want isn't here, how can I request it?</h4>
+      <p>
+        Feel free to tweet me (<a href="https://twitter.com/swirlycheetah">@swirlycheetah</a>) with any
+        requests/feedback/ideas.
+      </p>
     </section>
   </body>
 </html>
