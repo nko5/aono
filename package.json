@@ -1,15 +1,15 @@
 {
-  "name": "nko2015-entry",
+  "name": "p2pjs",
   "version": "0.0.1",
-  "description": "Our soon to be awesome entry for NKO2015. Let's make something amazing.",
-  "author": "Node Knockout Team <all@nodeknockout.com>",
-  "main": "./app.js",
+  "description": "A p2p JavaScript CDN built on top of IPFS",
+  "author": "AONO - Chris Wheatley <chriswheatley87@gmail.com>",
+  "main": "app.js",
   "dependencies": {
-    "express": "3.x.x"
+    "express": "^4.13.3",
+    "ipfs-api": "^2.7.0"
   },
   "scripts": {
     "start": "node app.js",
     "postinstall": "node scripts/postinstall.js"
   }
-
 }
