@@ -39,7 +39,7 @@
               <% lib.versions.forEach(function(ver) { %>
                 <li>
                   <a href="/<%= ver.hash %>"><%= ver.version %></a>
-                  <input type="url" value="<%= baseUrl %><%= ver.hash %>" onClick="this.select()"></input>
+                  <input type="url" value="<%= baseUrl %><%= port ? ':' + port : '' %>/<%= ver.hash %>" onClick="this.select()"></input>
                   <!-- <input type="url" value='<script src="<%= baseUrl %><%= ver.hash %>"></script>' onClick="this.select()"></input> -->
                 </li>
               <% }) %>

@@ -9,12 +9,13 @@ const config = {
   production: {
     ipfsHost: 'ipfs.io',
     ipfsPort: 80,
-    baseUrl: 'http://aono.2015.nodeknockout.com/'
+    baseUrl: 'http://aono.2015.nodeknockout.com'
   },
   dev: {
     ipfsHost: 'localhost',
     ipfsPort: 5001,
-    baseUrl: 'http://localhost/'
+    baseUrl: 'http://localhost',
+    port: 8081
   }
 }
 
@@ -26,7 +27,8 @@ const app = express()
 app.get('/', (req, res) => {
   res.render('index', {
     libraries,
-    baseUrl: cfg.baseUrl
+    baseUrl: cfg.baseUrl,
+    port: cfg.port
   })
 })
 
