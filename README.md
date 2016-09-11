@@ -30,4 +30,4 @@ Navigate to `localhost:8081` in your browser of choice.
 
 You can run `npm run watch` to watch for changes and restart the server during development.
 
-Adding a resource is currently done via an npm run task, `npm run add -- <script>`. `<script>` only currently supports passing in an [npmcdn.com](http://npmcdn.com) url, any other value passed in is unlikely to work. Future version will support a much more robust upload process.
+Adding a resource is currently done via an npm run task, `npm run add -- <script>`. `<script>` only currently supports passing in an [unpkg.com](http://unpkg.com) url, any other value passed in is unlikely to work. Future version will support a much more robust upload process.
